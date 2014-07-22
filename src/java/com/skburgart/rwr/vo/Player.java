@@ -1,4 +1,4 @@
-package com.skburgart.rwr.hibernate;
+package com.skburgart.rwr.vo;
 
 import java.io.Serializable;
 import javax.persistence.Column;
