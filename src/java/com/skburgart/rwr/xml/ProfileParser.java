@@ -1,10 +1,14 @@
 package com.skburgart.rwr.xml;
 
+import com.skburgart.rwr.hibernate.Player;
 import java.io.File;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -53,5 +57,15 @@ public class ProfileParser {
         System.out.println("block -> " + person.getAttribute("block"));
         System.out.println("squad_size_setting -> " + person.getAttribute("squad_size_setting"));
         System.out.println("squad_config_index -> " + person.getAttribute("squad_config_index"));
+
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+
+        Player p = new Player();
+        p.setUsername("Steve");
+
+        session.beginTransaction();
+        session.save(p);
+        session.getTransaction().commit();
     }
 }
