@@ -9,6 +9,7 @@ $(document).ready(function() {
             {"mData": "username"},
             {"mData": "kills"},
             {"mData": "deaths"},
+            {"mData": "kdratio"},
             {"mData": "played"}
         ]
     });

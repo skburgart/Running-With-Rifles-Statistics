@@ -264,4 +264,8 @@ public class Player implements Serializable {
 
         return String.format("%d:%02d", hours, minutes);
     }
+
+    public Double getKillDeathRatio() {
+        return (double) kills / (double) deaths;
+    }
 }
