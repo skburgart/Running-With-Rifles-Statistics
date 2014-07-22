@@ -22,35 +22,35 @@ public class Player implements Serializable {
     @Column(name = "username")
     private String username;
     @Column(name = "game_version")
-    private int game_version;
+    private int gameVersion;
     @Column(name = "digest")
     private String digest;
     @Column(name = "time_played")
-    private double time_played;
+    private double timePlayed;
     @Column(name = "kills")
     private int kills;
     @Column(name = "deaths")
     private int deaths;
     @Column(name = "player_kills")
-    private int player_kills;
+    private int playerKills;
     @Column(name = "teamkills")
     private int teamkills;
     @Column(name = "longest_kill_streak")
-    private int longest_kill_streak;
+    private int longestKillStreak;
     @Column(name = "targets_destroyed")
-    private int targets_destroyed;
+    private int targetsDestroyed;
     @Column(name = "vehicles_destroyed")
-    private int vehicles_destroyed;
+    private int vehiclesDestroyed;
     @Column(name = "soldiers_healed")
-    private int soldiers_healed;
+    private int soldiersHealed;
     @Column(name = "times_got_healed")
-    private int times_got_healed;
+    private int timesGotHealed;
     @Column(name = "max_authority_reached")
-    private double max_authority_reached;
+    private double maxAuthorityReached;
     @Column(name = "authority")
     private double authority;
     @Column(name = "job_points")
-    private double job_points;
+    private double jobPoints;
     @Column(name = "faction")
     private int faction;
     @Column(name = "name")
@@ -58,13 +58,13 @@ public class Player implements Serializable {
     @Column(name = "version")
     private int version;
     @Column(name = "soldier_group_id")
-    private int soldier_group_id;
+    private int soldierGroupId;
     @Column(name = "block")
     private String block;
     @Column(name = "squad_size_setting")
-    private int squad_size_setting;
+    private int squadSizeSetting;
     @Column(name = "squad_config_index")
-    private int squad_config_index;
+    private int squadConfigIndex;
 
     public int getPid() {
         return pid;
@@ -82,12 +82,12 @@ public class Player implements Serializable {
         this.username = username;
     }
 
-    public int getGame_version() {
-        return game_version;
+    public int getGameVersion() {
+        return gameVersion;
     }
 
-    public void setGame_version(int game_version) {
-        this.game_version = game_version;
+    public void setGameVersion(int gameVersion) {
+        this.gameVersion = gameVersion;
     }
 
     public String getDigest() {
@@ -98,12 +98,12 @@ public class Player implements Serializable {
         this.digest = digest;
     }
 
-    public double getTime_played() {
-        return time_played;
+    public double getTimePlayed() {
+        return timePlayed;
     }
 
-    public void setTime_played(double time_played) {
-        this.time_played = time_played;
+    public void setTimePlayed(double timePlayed) {
+        this.timePlayed = timePlayed;
     }
 
     public int getKills() {
@@ -122,12 +122,12 @@ public class Player implements Serializable {
         this.deaths = deaths;
     }
 
-    public int getPlayer_kills() {
-        return player_kills;
+    public int getPlayerKills() {
+        return playerKills;
     }
 
-    public void setPlayer_kills(int player_kills) {
-        this.player_kills = player_kills;
+    public void setPlayerKills(int playerKills) {
+        this.playerKills = playerKills;
     }
 
     public int getTeamkills() {
@@ -138,52 +138,52 @@ public class Player implements Serializable {
         this.teamkills = teamkills;
     }
 
-    public int getLongest_kill_streak() {
-        return longest_kill_streak;
+    public int getLongestKillStreak() {
+        return longestKillStreak;
     }
 
-    public void setLongest_kill_streak(int longest_kill_streak) {
-        this.longest_kill_streak = longest_kill_streak;
+    public void setLongestKillStreak(int longestKillStreak) {
+        this.longestKillStreak = longestKillStreak;
     }
 
-    public int getTargets_destroyed() {
-        return targets_destroyed;
+    public int getTargetsDestroyed() {
+        return targetsDestroyed;
     }
 
-    public void setTargets_destroyed(int targets_destroyed) {
-        this.targets_destroyed = targets_destroyed;
+    public void setTargetsDestroyed(int targetsDestroyed) {
+        this.targetsDestroyed = targetsDestroyed;
     }
 
-    public int getVehicles_destroyed() {
-        return vehicles_destroyed;
+    public int getVehiclesDestroyed() {
+        return vehiclesDestroyed;
     }
 
-    public void setVehicles_destroyed(int vehicles_destroyed) {
-        this.vehicles_destroyed = vehicles_destroyed;
+    public void setVehiclesDestroyed(int vehiclesDestroyed) {
+        this.vehiclesDestroyed = vehiclesDestroyed;
     }
 
-    public int getSoldiers_healed() {
-        return soldiers_healed;
+    public int getSoldiersHealed() {
+        return soldiersHealed;
     }
 
-    public void setSoldiers_healed(int soldiers_healed) {
-        this.soldiers_healed = soldiers_healed;
+    public void setSoldiersHealed(int soldiersHealed) {
+        this.soldiersHealed = soldiersHealed;
     }
 
-    public int getTimes_got_healed() {
-        return times_got_healed;
+    public int getTimesGotHealed() {
+        return timesGotHealed;
     }
 
-    public void setTimes_got_healed(int times_got_healed) {
-        this.times_got_healed = times_got_healed;
+    public void setTimesGotHealed(int timesGotHealed) {
+        this.timesGotHealed = timesGotHealed;
     }
 
-    public double getMax_authority_reached() {
-        return max_authority_reached;
+    public double getMaxAuthorityReached() {
+        return maxAuthorityReached;
     }
 
-    public void setMax_authority_reached(double max_authority_reached) {
-        this.max_authority_reached = max_authority_reached;
+    public void setMaxAuthorityReached(double maxAuthorityReached) {
+        this.maxAuthorityReached = maxAuthorityReached;
     }
 
     public double getAuthority() {
@@ -194,12 +194,12 @@ public class Player implements Serializable {
         this.authority = authority;
     }
 
-    public double getJob_points() {
-        return job_points;
+    public double getJobPoints() {
+        return jobPoints;
     }
 
-    public void setJob_points(double job_points) {
-        this.job_points = job_points;
+    public void setJobPoints(double jobPoints) {
+        this.jobPoints = jobPoints;
     }
 
     public int getFaction() {
@@ -226,12 +226,12 @@ public class Player implements Serializable {
         this.version = version;
     }
 
-    public int getSoldier_group_id() {
-        return soldier_group_id;
+    public int getSoldierGroupId() {
+        return soldierGroupId;
     }
 
-    public void setSoldier_group_id(int soldier_group_id) {
-        this.soldier_group_id = soldier_group_id;
+    public void setSoldierGroupId(int soldierGroupId) {
+        this.soldierGroupId = soldierGroupId;
     }
 
     public String getBlock() {
@@ -242,19 +242,21 @@ public class Player implements Serializable {
         this.block = block;
     }
 
-    public int getSquad_size_setting() {
-        return squad_size_setting;
+    public int getSquadSizeSetting() {
+        return squadSizeSetting;
     }
 
-    public void setSquad_size_setting(int squad_size_setting) {
-        this.squad_size_setting = squad_size_setting;
+    public void setSquadSizeSetting(int squadSizeSetting) {
+        this.squadSizeSetting = squadSizeSetting;
     }
 
-    public int getSquad_config_index() {
-        return squad_config_index;
+    public int getSquadConfigIndex() {
+        return squadConfigIndex;
     }
 
-    public void setSquad_config_index(int squad_config_index) {
-        this.squad_config_index = squad_config_index;
+    public void setSquadConfigIndex(int squadConfigIndex) {
+        this.squadConfigIndex = squadConfigIndex;
     }
+
+    
 }

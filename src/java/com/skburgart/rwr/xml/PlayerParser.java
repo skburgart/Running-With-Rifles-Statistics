@@ -1,9 +1,7 @@
 package com.skburgart.rwr.xml;
 
 import com.skburgart.rwr.vo.Player;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
@@ -33,32 +31,32 @@ public class PlayerParser {
 
         Element profile = (Element) profileXML.getElementsByTagName("profile").item(0);
         player.setUsername(profile.getAttribute("username"));
-        player.setGame_version(Integer.parseInt(profile.getAttribute("game_version")));
+        player.setGameVersion(Integer.parseInt(profile.getAttribute("game_version")));
         player.setDigest(profile.getAttribute("digest"));
 
         Element profile_stats = (Element) profileXML.getElementsByTagName("stats").item(0);
-        player.setTime_played(Double.parseDouble(profile_stats.getAttribute("time_played")));
+        player.setTimePlayed(Double.parseDouble(profile_stats.getAttribute("time_played")));
         player.setDeaths(Integer.parseInt(profile_stats.getAttribute("deaths")));
         player.setKills(Integer.parseInt(profile_stats.getAttribute("kills")));
-        player.setPlayer_kills(Integer.parseInt(profile_stats.getAttribute("player_kills")));
+        player.setPlayerKills(Integer.parseInt(profile_stats.getAttribute("player_kills")));
         player.setTeamkills(Integer.parseInt(profile_stats.getAttribute("teamkills")));
-        player.setLongest_kill_streak(Integer.parseInt(profile_stats.getAttribute("longest_kill_streak")));
-        player.setTargets_destroyed(Integer.parseInt(profile_stats.getAttribute("targets_destroyed")));
-        player.setVehicles_destroyed(Integer.parseInt(profile_stats.getAttribute("vehicles_destroyed")));
-        player.setSoldiers_healed(Integer.parseInt(profile_stats.getAttribute("soldiers_healed")));
-        player.setTime_played(Integer.parseInt(profile_stats.getAttribute("times_got_healed")));
+        player.setLongestKillStreak(Integer.parseInt(profile_stats.getAttribute("longest_kill_streak")));
+        player.setTargetsDestroyed(Integer.parseInt(profile_stats.getAttribute("targets_destroyed")));
+        player.setVehiclesDestroyed(Integer.parseInt(profile_stats.getAttribute("vehicles_destroyed")));
+        player.setSoldiersHealed(Integer.parseInt(profile_stats.getAttribute("soldiers_healed")));
+        player.setTimePlayed(Integer.parseInt(profile_stats.getAttribute("times_got_healed")));
 
         Element person = (Element) personXML.getElementsByTagName("person").item(0);
-        player.setMax_authority_reached(Double.parseDouble(person.getAttribute("max_authority_reached")));
+        player.setMaxAuthorityReached(Double.parseDouble(person.getAttribute("max_authority_reached")));
         player.setAuthority(Double.parseDouble(person.getAttribute("authority")));
-        player.setJob_points(Double.parseDouble(person.getAttribute("job_points")));
+        player.setJobPoints(Double.parseDouble(person.getAttribute("job_points")));
         player.setFaction(Integer.parseInt(person.getAttribute("faction")));
         player.setName(person.getAttribute("name"));
-        player.setVehicles_destroyed(Integer.parseInt(person.getAttribute("version")));
-        player.setSoldier_group_id(Integer.parseInt(person.getAttribute("soldier_group_id")));
+        player.setVehiclesDestroyed(Integer.parseInt(person.getAttribute("version")));
+        player.setSoldierGroupId(Integer.parseInt(person.getAttribute("soldier_group_id")));
         player.setBlock(person.getAttribute("block"));
-        player.setSquad_size_setting(Integer.parseInt(person.getAttribute("squad_size_setting")));
-        player.setSquad_config_index(Integer.parseInt(person.getAttribute("squad_config_index")));
+        player.setSquadSizeSetting(Integer.parseInt(person.getAttribute("squad_size_setting")));
+        player.setSquadConfigIndex(Integer.parseInt(person.getAttribute("squad_config_index")));
 
         return player;
     }
@@ -88,7 +86,6 @@ public class PlayerParser {
         Session session = factory.openSession();
 
         session.beginTransaction();
-
         ArrayList<Player> players = parseDirectory(profileDir);
 
         for (Player p : players) {
