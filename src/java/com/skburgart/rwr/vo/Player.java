@@ -26,7 +26,7 @@ public class Player implements Serializable {
     @Column(name = "digest")
     private String digest;
     @Column(name = "time_played")
-    private double timePlayed;
+    private int timePlayed;
     @Column(name = "kills")
     private int kills;
     @Column(name = "deaths")
@@ -98,11 +98,11 @@ public class Player implements Serializable {
         this.digest = digest;
     }
 
-    public double getTimePlayed() {
+    public int getTimePlayed() {
         return timePlayed;
     }
 
-    public void setTimePlayed(double timePlayed) {
+    public void setTimePlayed(int timePlayed) {
         this.timePlayed = timePlayed;
     }
 
@@ -258,5 +258,10 @@ public class Player implements Serializable {
         this.squadConfigIndex = squadConfigIndex;
     }
 
-    
+    public String getTimePlayedString() {
+        int hours = getTimePlayed() / 60 / 60;
+        int minutes = (getTimePlayed() / 60) % 60;
+
+        return String.format("%d:%02d", hours, minutes);
+    }
 }

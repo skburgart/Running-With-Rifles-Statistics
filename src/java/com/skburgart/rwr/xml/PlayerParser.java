@@ -36,7 +36,7 @@ public class PlayerParser {
         player.setDigest(profile.getAttribute("digest"));
 
         Element profile_stats = (Element) profileXML.getElementsByTagName("stats").item(0);
-        player.setTimePlayed(Double.parseDouble(profile_stats.getAttribute("time_played")));
+        player.setTimePlayed((int) Double.parseDouble(profile_stats.getAttribute("time_played")));
         player.setDeaths(Integer.parseInt(profile_stats.getAttribute("deaths")));
         player.setKills(Integer.parseInt(profile_stats.getAttribute("kills")));
         player.setPlayerKills(Integer.parseInt(profile_stats.getAttribute("player_kills")));
@@ -45,7 +45,7 @@ public class PlayerParser {
         player.setTargetsDestroyed(Integer.parseInt(profile_stats.getAttribute("targets_destroyed")));
         player.setVehiclesDestroyed(Integer.parseInt(profile_stats.getAttribute("vehicles_destroyed")));
         player.setSoldiersHealed(Integer.parseInt(profile_stats.getAttribute("soldiers_healed")));
-        player.setTimePlayed(Integer.parseInt(profile_stats.getAttribute("times_got_healed")));
+        player.setTimesGotHealed(Integer.parseInt(profile_stats.getAttribute("times_got_healed")));
 
         Element person = (Element) personXML.getElementsByTagName("person").item(0);
         player.setMaxAuthorityReached(Double.parseDouble(person.getAttribute("max_authority_reached")));
