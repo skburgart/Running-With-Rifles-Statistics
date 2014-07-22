@@ -1,5 +1,6 @@
 package com.skburgart.rwr.xml;
 
+import com.skburgart.rwr.RWRConfig;
 import com.skburgart.rwr.vo.Player;
 import java.io.File;
 import java.io.IOException;
@@ -81,12 +82,11 @@ public class PlayerParser {
 
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
 
-        String profileDir = "C:\\Users\\Steve\\Documents\\NetBeansProjects\\running-with-rifles-stats\\profiles\\";
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
         session.beginTransaction();
-        ArrayList<Player> players = parseDirectory(profileDir);
+        ArrayList<Player> players = parseDirectory(RWRConfig.get("profiles.dir"));
 
         for (Player p : players) {
             session.save(p);
