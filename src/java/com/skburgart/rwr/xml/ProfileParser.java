@@ -25,9 +25,20 @@ public class ProfileParser {
         Document doc = dBuilder.parse(fXmlFile);
 
         Element person = (Element) doc.getElementsByTagName("profile").item(0);
-        
         System.out.println("username -> " + person.getAttribute("username"));
         System.out.println("game_version -> " + person.getAttribute("game_version"));
         System.out.println("digest -> " + person.getAttribute("digest"));
+
+        Element stats = (Element) doc.getElementsByTagName("stats").item(0);
+        System.out.println("time_played -> " + stats.getAttribute("time_played"));
+        System.out.println("kills -> " + stats.getAttribute("deaths"));
+        System.out.println("deaths -> " + stats.getAttribute("kills"));
+        System.out.println("player_kills -> " + stats.getAttribute("player_kills"));
+        System.out.println("teamkills -> " + stats.getAttribute("teamkills"));
+        System.out.println("longest_kill_streak -> " + stats.getAttribute("longest_kill_streak"));
+        System.out.println("targets_destroyed -> " + stats.getAttribute("targets_destroyed"));
+        System.out.println("vehicles_destroyed -> " + stats.getAttribute("vehicles_destroyed"));
+        System.out.println("soldiers_healed -> " + stats.getAttribute("soldiers_healed"));
+        System.out.println("times_got_healed -> " + stats.getAttribute("times_got_healed"));
     }
 }
