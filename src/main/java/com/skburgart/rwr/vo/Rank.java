@@ -14,7 +14,7 @@ public class Rank {
         SERGEANT(2000, "Sergeant"),
         STAFFSERGEANT(3000, "Staff Sergeant"),
         STAFFSERGEANT1ST(4000, "Staff Seargant 1st Class"),
-        LIEUTENANT2(6000, "2nd Lietenant"),
+        LIEUTENANT2(6000, "2nd Lieutenant"),
         LIEUTENANT(8000, "Lieutenant"),
         CAPTAIN(10000, "Captain"),
         MAJOR(12000, "Major"),
