@@ -13,7 +13,8 @@ $(document).ready(function() {
             {"mData": "streak", "sClass" : "alignRight", "sType:": "numeric"},
             {"mData": "kdratio", "sClass" : "alignRight", "sType:": "numeric"},
             {"mData": "kpm", "sClass" : "alignRight", "sType:": "numeric"},
-            {"mData": "played", "sClass" : "alignRight", "sType:": "numeric"}
+            {"mData": "played", "sClass" : "alignRight", "sType:": "numeric"},
+            {"mData": "lastseen", "sClass" : "alignRight"}
         ]
     });
 });

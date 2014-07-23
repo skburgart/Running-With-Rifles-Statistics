@@ -1,11 +1,14 @@
 package com.skburgart.rwr.vo;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -62,6 +65,9 @@ public class Player implements Serializable {
     private int squadSizeSetting;
     @Column(name = "squad_config_index")
     private int squadConfigIndex;
+    @Column(name = "last_modified")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModified;
 
     public String getUsername() {
         return username;
@@ -247,11 +253,12 @@ public class Player implements Serializable {
         this.squadConfigIndex = squadConfigIndex;
     }
 
-    public Double getTimePlayedHrMin() {
-        int hours = getTimePlayed() / 60 / 60;
-        int minutes = (getTimePlayed() / 60) % 60;
+    public Date getLastModified() {
+        return lastModified;
+    }
 
-        return hours + (minutes / 60.0);
+    public void setLastModified(Date lastModified) {
+        this.lastModified = lastModified;
     }
 
     public Double getKillDeathRatio() {
@@ -276,5 +283,46 @@ public class Player implements Serializable {
 
     public int getExperience() {
         return (int) (getAuthority() * 10000.0);
+    }
+
+    public String getTimePlayedString() {
+
+        return elapsedString(getTimePlayed());
+    }
+
+    public String getLastSeen() {
+
+        return elapsedString(getLastModified(), new Date()) + " ago";
+    }
+
+    public static String elapsedString(Date start, Date end) {
+
+        return elapsedString((end.getTime() - start.getTime()) / 1000);
+    }
+
+    public static String elapsedString(long seconds) {
+
+        final int SECONDS_PER_DAY = 86400;
+        final int SECONDS_PER_HOUR = 3600;
+
+        if (seconds >= SECONDS_PER_DAY) { // Days
+            long days = seconds / SECONDS_PER_DAY;
+            if (days > 1) {
+                return days + " days";
+            } else {
+                return days + " day";
+            }
+        } else if (seconds >= SECONDS_PER_HOUR) { // Hours
+            long hours = seconds / SECONDS_PER_HOUR;
+            if (hours > 1) {
+                return hours + " hours";
+            } else {
+                return hours + " hour";
+            }
+        } else if (seconds >= 600) { // Minutes
+            return (seconds / 60) + " minutes";
+        }
+
+        return "now";
     }
 }

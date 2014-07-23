@@ -4,6 +4,7 @@ import com.skburgart.rwr.vo.Player;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -26,23 +27,25 @@ public class PlayerParser {
 
         Player player = new Player();
 
+        // Stats from .profile file
         Element profile = (Element) profileXML.getElementsByTagName("profile").item(0);
         player.setUsername(profile.getAttribute("username"));
         player.setGameVersion(Integer.parseInt(profile.getAttribute("game_version")));
         player.setDigest(profile.getAttribute("digest"));
 
-        Element profile_stats = (Element) profileXML.getElementsByTagName("stats").item(0);
-        player.setTimePlayed((int) Double.parseDouble(profile_stats.getAttribute("time_played")));
-        player.setDeaths(Integer.parseInt(profile_stats.getAttribute("deaths")));
-        player.setKills(Integer.parseInt(profile_stats.getAttribute("kills")));
-        player.setPlayerKills(Integer.parseInt(profile_stats.getAttribute("player_kills")));
-        player.setTeamkills(Integer.parseInt(profile_stats.getAttribute("teamkills")));
-        player.setLongestKillStreak(Integer.parseInt(profile_stats.getAttribute("longest_kill_streak")));
-        player.setTargetsDestroyed(Integer.parseInt(profile_stats.getAttribute("targets_destroyed")));
-        player.setVehiclesDestroyed(Integer.parseInt(profile_stats.getAttribute("vehicles_destroyed")));
-        player.setSoldiersHealed(Integer.parseInt(profile_stats.getAttribute("soldiers_healed")));
-        player.setTimesGotHealed(Integer.parseInt(profile_stats.getAttribute("times_got_healed")));
+        Element profileStats = (Element) profileXML.getElementsByTagName("stats").item(0);
+        player.setTimePlayed((int) Double.parseDouble(profileStats.getAttribute("time_played")));
+        player.setDeaths(Integer.parseInt(profileStats.getAttribute("deaths")));
+        player.setKills(Integer.parseInt(profileStats.getAttribute("kills")));
+        player.setPlayerKills(Integer.parseInt(profileStats.getAttribute("player_kills")));
+        player.setTeamkills(Integer.parseInt(profileStats.getAttribute("teamkills")));
+        player.setLongestKillStreak(Integer.parseInt(profileStats.getAttribute("longest_kill_streak")));
+        player.setTargetsDestroyed(Integer.parseInt(profileStats.getAttribute("targets_destroyed")));
+        player.setVehiclesDestroyed(Integer.parseInt(profileStats.getAttribute("vehicles_destroyed")));
+        player.setSoldiersHealed(Integer.parseInt(profileStats.getAttribute("soldiers_healed")));
+        player.setTimesGotHealed(Integer.parseInt(profileStats.getAttribute("times_got_healed")));
 
+        // Stats from .person file
         Element person = (Element) personXML.getElementsByTagName("person").item(0);
         player.setMaxAuthorityReached(Double.parseDouble(person.getAttribute("max_authority_reached")));
         player.setAuthority(Double.parseDouble(person.getAttribute("authority")));
@@ -55,6 +58,9 @@ public class PlayerParser {
         player.setSquadSizeSetting(Integer.parseInt(person.getAttribute("squad_size_setting")));
         player.setSquadConfigIndex(Integer.parseInt(person.getAttribute("squad_config_index")));
 
+        // Get last modified date
+        player.setLastModified(new Date(profileXMLFile.lastModified()));
+
         return player;
     }
 
@@ -63,6 +69,11 @@ public class PlayerParser {
         ArrayList<Player> players = new ArrayList<Player>();
 
         File directory = new File(dir);
+
+        if (!directory.canRead() || !directory.isDirectory()) {
+            throw new RuntimeException("RWR profiles directory not readable");
+        }
+
         File[] files = directory.listFiles();
 
         for (File personFile : files) {
