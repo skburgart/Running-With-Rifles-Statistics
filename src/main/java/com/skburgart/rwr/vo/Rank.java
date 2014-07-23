@@ -10,10 +10,10 @@ public class Rank {
 
         PRIVATE(0, "Private"),
         PRIVATE1ST(500, "Private 1st Class"),
-        CORPORAL(1000, "Corportal"),
+        CORPORAL(1000, "Corporal"),
         SERGEANT(2000, "Sergeant"),
         STAFFSERGEANT(3000, "Staff Sergeant"),
-        STAFFSERGEANT1ST(4000, "Staff Seargant 1st Class"),
+        STAFFSERGEANT1ST(4000, "Staff Sergeant 1st Class"),
         LIEUTENANT2(6000, "2nd Lieutenant"),
         LIEUTENANT(8000, "Lieutenant"),
         CAPTAIN(10000, "Captain"),
