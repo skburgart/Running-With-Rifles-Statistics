@@ -256,11 +256,25 @@ public class Player implements Serializable {
 
     public Double getKillDeathRatio() {
 
-        Double kdratio = (double) kills / (double) deaths;
+        Double kdratio = (double) getKills() / (double) getDeaths();
         if (Double.isInfinite(kdratio) || Double.isNaN(kdratio)) {
             kdratio = 0.0;
         }
 
         return kdratio;
+    }
+
+    public Double getKillsPerMinute() {
+
+        Double kpm = (double) getKills() / (getTimePlayed() / 60);
+        if (Double.isInfinite(kpm) || Double.isNaN(kpm)) {
+            kpm = 0.0;
+        }
+
+        return kpm;
+    }
+
+    public int getExperience() {
+        return (int) (getAuthority() * 10000.0);
     }
 }
