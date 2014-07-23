@@ -7,12 +7,12 @@ $(document).ready(function() {
         "aaSorting": [[ 1, "desc" ]],
         "aoColumns": [
             {"mData": "username"},
-            {"mData": "xp", "sType:": "numeric"},
-            {"mData": "kills", "sType:": "numeric"},
-            {"mData": "deaths", "sType:": "numeric"},
-            {"mData": "kdratio", "sType:": "numeric"},
-            {"mData": "kpm", "sType:": "numeric"},
-            {"mData": "played", "sType:": "numeric"}
+            {"mData": "xp", "sClass" : "alignRight", "sType:": "numeric"},
+            {"mData": "kills", "sClass" : "alignRight", "sType:": "numeric"},
+            {"mData": "deaths", "sClass" : "alignRight", "sType:": "numeric"},
+            {"mData": "kdratio", "sClass" : "alignRight", "sType:": "numeric"},
+            {"mData": "kpm", "sClass" : "alignRight", "sType:": "numeric"},
+            {"mData": "played", "sClass" : "alignRight", "sType:": "numeric"}
         ]
     });
 });

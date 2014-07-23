@@ -1,3 +1,8 @@
 #stats-table-container {
     margin: 70px 15px 0 15px;
 }
+
+.alignRight { 
+    text-align: right; 
+}
+
