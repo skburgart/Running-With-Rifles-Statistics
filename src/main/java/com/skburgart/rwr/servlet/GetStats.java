@@ -55,6 +55,7 @@ public class GetStats extends HttpServlet {
             jsonObject.addProperty("xp", p.getExperience());
             jsonObject.addProperty("kills", p.getKills());
             jsonObject.addProperty("deaths", p.getDeaths());
+            jsonObject.addProperty("streak", p.getLongestKillStreak());
             jsonObject.addProperty("kdratio", String.format("%.2f", p.getKillDeathRatio()));
             jsonObject.addProperty("kpm", String.format("%.2f", p.getKillsPerMinute()));
             jsonObject.addProperty("played", String.format("%.2f",  p.getTimePlayedHrMin()));

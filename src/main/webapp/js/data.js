@@ -10,6 +10,7 @@ $(document).ready(function() {
             {"mData": "xp", "sClass" : "alignRight", "sType:": "numeric"},
             {"mData": "kills", "sClass" : "alignRight", "sType:": "numeric"},
             {"mData": "deaths", "sClass" : "alignRight", "sType:": "numeric"},
+            {"mData": "streak", "sClass" : "alignRight", "sType:": "numeric"},
             {"mData": "kdratio", "sClass" : "alignRight", "sType:": "numeric"},
             {"mData": "kpm", "sClass" : "alignRight", "sType:": "numeric"},
             {"mData": "played", "sClass" : "alignRight", "sType:": "numeric"}
