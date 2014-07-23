@@ -80,19 +80,4 @@ public class PlayerParser {
 
         return players;
     }
-
-    public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        Session session = factory.openSession();
-
-        session.beginTransaction();
-        ArrayList<Player> players = parseDirectory(RWRConfig.get("profiles.dir"));
-
-        for (Player p : players) {
-            session.saveOrUpdate(p);
-        }
-
-        session.getTransaction().commit();
-    }
 }
