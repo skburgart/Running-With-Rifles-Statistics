@@ -247,11 +247,11 @@ public class Player implements Serializable {
         this.squadConfigIndex = squadConfigIndex;
     }
 
-    public String getTimePlayedString() {
+    public Double getTimePlayedHrMin() {
         int hours = getTimePlayed() / 60 / 60;
         int minutes = (getTimePlayed() / 60) % 60;
 
-        return String.format("%d:%02d", hours, minutes);
+        return hours + (minutes / 60.0);
     }
 
     public Double getKillDeathRatio() {
