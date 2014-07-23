@@ -66,7 +66,7 @@ public class PlayerParser {
 
     public static ArrayList<Player> parseDirectory(String dir) throws ParserConfigurationException, SAXException, IOException {
 
-        ArrayList<Player> players = new ArrayList<Player>();
+        ArrayList<Player> players = new ArrayList<>();
 
         File directory = new File(dir);
 

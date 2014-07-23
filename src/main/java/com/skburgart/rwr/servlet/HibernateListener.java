@@ -39,6 +39,9 @@ public class HibernateListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        sessionFactory.close();
+        if (sessionFactory != null) {
+            sessionFactory.close();
+            sessionFactory = null;
+        }
     }
 }
