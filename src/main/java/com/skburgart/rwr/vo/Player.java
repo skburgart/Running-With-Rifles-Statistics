@@ -292,7 +292,13 @@ public class Player implements Serializable {
 
     public String getLastSeen() {
 
-        return elapsedString(getLastSeenSeconds()) + " ago";
+        String lastSeen = elapsedString(getLastSeenSeconds());
+
+        if (lastSeen.equals("now")) {
+            return "now";
+        }
+
+        return lastSeen + " ago";
     }
 
     public Long getLastSeenSeconds() {
