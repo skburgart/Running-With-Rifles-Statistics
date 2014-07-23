@@ -292,12 +292,12 @@ public class Player implements Serializable {
 
     public String getLastSeen() {
 
-        return elapsedString(getLastModified(), new Date()) + " ago";
+        return elapsedString(getLastSeenSeconds()) + " ago";
     }
 
-    public static String elapsedString(Date start, Date end) {
+    public Long getLastSeenSeconds() {
 
-        return elapsedString((end.getTime() - start.getTime()) / 1000);
+        return ((new Date().getTime()) - getLastModified().getTime()) / 1000;
     }
 
     public static String elapsedString(long seconds) {
@@ -320,7 +320,7 @@ public class Player implements Serializable {
                 return hours + " hour";
             }
         } else if (seconds >= 600) { // Minutes
-            return (seconds / 60) + " minutes";
+            return (seconds / 60) + " mins";
         }
 
         return "now";

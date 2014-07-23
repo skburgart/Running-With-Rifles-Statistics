@@ -60,6 +60,8 @@ public class GetStats extends HttpServlet {
             jsonObject.addProperty("kpm", String.format("%.2f", p.getKillsPerMinute()));
             jsonObject.addProperty("played", p.getTimePlayedString());
             jsonObject.addProperty("lastseen", p.getLastSeen());
+            jsonObject.addProperty("playedseconds", p.getTimePlayed());
+            jsonObject.addProperty("lastseenseconds", p.getLastSeenSeconds());
             return jsonObject;
         }
     }

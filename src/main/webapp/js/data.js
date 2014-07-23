@@ -13,8 +13,11 @@ $(document).ready(function() {
             {"mData": "streak", "sClass" : "alignRight", "sType:": "numeric"},
             {"mData": "kdratio", "sClass" : "alignRight", "sType:": "numeric"},
             {"mData": "kpm", "sClass" : "alignRight", "sType:": "numeric"},
-            {"mData": "played", "sClass" : "alignRight", "sType:": "numeric"},
-            {"mData": "lastseen", "sClass" : "alignRight"}
+            {"mData": "played", "sClass" : "alignRight", "sType:": "numeric", "iDataSort": 9},
+            {"mData": "lastseen", "sClass" : "alignRight", "sType:": "numeric", "iDataSort": 10},
+            // Hiden values (for sorting)
+            {"mData": "playedseconds", "bVisible": false},
+            {"mData": "lastseenseconds", "bVisible": false}
         ]
     });
 });
