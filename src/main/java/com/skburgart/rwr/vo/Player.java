@@ -1,7 +1,6 @@
 package com.skburgart.rwr.vo;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -302,6 +301,10 @@ public class Player implements Serializable {
     public Long getLastSeenSeconds() {
 
         return ((new Date().getTime()) - getLastModified().getTime()) / 1000;
+    }
+
+    public String getRank() {
+        return Rank.getRank(getExperience()).toString();
     }
 
     public static String elapsedString(long seconds) {
