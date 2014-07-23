@@ -9,7 +9,7 @@ public class Rank {
     public enum RankType {
 
         PRIVATE(0, "Private"),
-        PRVVATE1ST(500, "Private 1st Class"),
+        PRIVATE1ST(500, "Private 1st Class"),
         CORPORAL(1000, "Corportal"),
         SERGEANT(2000, "Sergeant"),
         STAFFSERGEANT(3000, "Staff Sergeant"),

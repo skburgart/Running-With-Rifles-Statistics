@@ -307,6 +307,10 @@ public class Player implements Serializable {
         return Rank.getRank(getExperience()).toString();
     }
 
+    public String getRankIMG() {
+        return String.format("<img height=\"25\" src=\"img/rank/%s.png\" />", getRank());
+    }
+
     public static String elapsedString(long seconds) {
 
         final int SECONDS_PER_DAY = 86400;
