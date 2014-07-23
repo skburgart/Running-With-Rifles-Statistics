@@ -33,6 +33,10 @@ public class Rank {
             this.xp = xp;
             this.title = title;
         }
+
+        public String getTitle() {
+            return title;
+        }
     }
 
     public static RankType getRank(int xp) {

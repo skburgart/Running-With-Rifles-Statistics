@@ -1,5 +1,6 @@
 package com.skburgart.rwr.vo;
 
+import com.skburgart.rwr.vo.Rank.RankType;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -303,12 +304,18 @@ public class Player implements Serializable {
         return ((new Date().getTime()) - getLastModified().getTime()) / 1000;
     }
 
-    public String getRank() {
-        return Rank.getRank(getExperience()).toString();
+    public String getUsernameAndRank() {
+        return getRankIMG() + getUsername();
+    }
+
+    public RankType getRank() {
+        return Rank.getRank(getExperience());
     }
 
     public String getRankIMG() {
-        return String.format("<img height=\"25\" src=\"img/rank/%s.png\" />", getRank());
+
+        RankType rank = getRank();
+        return String.format("<img title=\"%s\" height=\"25\" src=\"img/rank/%s.png\" />", rank.getTitle(), rank.toString());
     }
 
     public static String elapsedString(long seconds) {

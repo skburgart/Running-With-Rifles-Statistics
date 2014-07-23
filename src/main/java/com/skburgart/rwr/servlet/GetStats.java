@@ -51,8 +51,7 @@ public class GetStats extends HttpServlet {
         public JsonElement serialize(Player p, java.lang.reflect.Type type, JsonSerializationContext jsc) {
 
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("username", p.getUsername());
-            jsonObject.addProperty("rank", p.getRankIMG());
+            jsonObject.addProperty("username", p.getUsernameAndRank());
             jsonObject.addProperty("xp", p.getExperience());
             jsonObject.addProperty("kills", p.getKills());
             jsonObject.addProperty("deaths", p.getDeaths());
