@@ -5,11 +5,13 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
 /**
  *
  * @author Steven Burgart <skburgart@gmail.com>
  */
+@WebListener
 public class UpdateListener implements ServletContextListener {
 
     private static final int UPDATE_INTERVAL_MINS = 5;
