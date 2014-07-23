@@ -14,7 +14,7 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class UpdateListener implements ServletContextListener {
 
-    private static final int UPDATE_INTERVAL_MINS = 5;
+    private static final int UPDATE_INTERVAL_MINS = 1;
     private volatile ScheduledExecutorService executor;
 
     @Override
