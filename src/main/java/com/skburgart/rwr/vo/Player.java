@@ -292,13 +292,11 @@ public class Player implements Serializable {
 
     public String getLastSeen() {
 
-        String lastSeen = elapsedString(getLastSeenSeconds());
-
-        if (lastSeen.equals("now")) {
+        if (getLastSeenSeconds() < 600) {
             return "now";
         }
 
-        return lastSeen + " ago";
+        return elapsedString(getLastSeenSeconds()) + " ago";
     }
 
     public Long getLastSeenSeconds() {
@@ -310,6 +308,7 @@ public class Player implements Serializable {
 
         final int SECONDS_PER_DAY = 86400;
         final int SECONDS_PER_HOUR = 3600;
+        final int SECONDS_PER_MINUTE = 60;
 
         if (seconds >= SECONDS_PER_DAY) { // Days
             long days = seconds / SECONDS_PER_DAY;
@@ -325,10 +324,13 @@ public class Player implements Serializable {
             } else {
                 return hours + " hour";
             }
-        } else if (seconds >= 600) { // Minutes
-            return (seconds / 60) + " mins";
+        } else { // Minutes
+            long minutes = seconds /SECONDS_PER_MINUTE;
+            if (minutes > 1) {
+                return minutes + " mins";
+            } else {
+                return minutes + " min";
+            }
         }
-
-        return "now";
     }
 }
