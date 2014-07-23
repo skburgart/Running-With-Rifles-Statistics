@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.skburgart.rwr.servlet;
 
 import com.google.gson.Gson;
@@ -14,11 +9,8 @@ import com.google.gson.JsonSerializer;
 import com.skburgart.rwr.vo.Player;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,7 +21,6 @@ import org.hibernate.SessionFactory;
  *
  * @author Steven Burgart <skburgart@gmail.com>
  */
-@WebServlet(name = "GetStats", urlPatterns = {"/GetStats"})
 public class GetStats extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

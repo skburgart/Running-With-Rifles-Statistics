@@ -64,9 +64,10 @@ public class PlayerParser {
 
     public static ArrayList<Player> parseDirectory(String dir) throws ParserConfigurationException, SAXException, IOException {
 
-        ArrayList<Player> players = new ArrayList<>();
+        ArrayList<Player> players = new ArrayList<Player>();
 
-        File[] files = new File(dir).listFiles();
+        File directory = new File(dir);
+        File[] files = directory.listFiles();
 
         for (File personFile : files) {
             if (personFile.getName().endsWith("person")) {
@@ -89,7 +90,7 @@ public class PlayerParser {
         ArrayList<Player> players = parseDirectory(RWRConfig.get("profiles.dir"));
 
         for (Player p : players) {
-            session.save(p);
+            session.saveOrUpdate(p);
         }
 
         session.getTransaction().commit();

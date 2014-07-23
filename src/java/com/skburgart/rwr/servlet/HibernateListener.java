@@ -1,9 +1,8 @@
-package com.skburgart.rwr.hibernate;
+package com.skburgart.rwr.servlet;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -15,7 +14,6 @@ import org.hibernate.service.ServiceRegistryBuilder;
  * @author Steven Burgart <skburgart@gmail.com>
  */
 
-@WebListener
 public class HibernateListener implements ServletContextListener {
 
     private SessionFactory sessionFactory;

@@ -16,9 +16,6 @@ import javax.persistence.Table;
 public class Player implements Serializable {
 
     @Id
-    @GeneratedValue
-    @Column(name = "pid")
-    private int pid;
     @Column(name = "username")
     private String username;
     @Column(name = "game_version")
@@ -65,14 +62,6 @@ public class Player implements Serializable {
     private int squadSizeSetting;
     @Column(name = "squad_config_index")
     private int squadConfigIndex;
-
-    public int getPid() {
-        return pid;
-    }
-
-    public void setPid(int pid) {
-        this.pid = pid;
-    }
 
     public String getUsername() {
         return username;
