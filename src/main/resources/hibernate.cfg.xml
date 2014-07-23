@@ -2,12 +2,10 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/rwr</property>
-    <property name="hibernate.connection.username">USERNAME</property>
-    <property name="hibernate.connection.password">PASSWORD</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+    <property name="hibernate.connection.url">jdbc:hsqldb:mem:rwr</property>
+    <property name="hibernate.hbm2ddl.auto">create</property>
     <mapping class="com.skburgart.rwr.vo.Player"/>
   </session-factory>
 </hibernate-configuration>

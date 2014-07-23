@@ -15,6 +15,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'org.hibernate:hibernate-core:4.3.6.Final'
     runtime 'mysql:mysql-connector-java:5.1.31'
+    runtime 'org.hsqldb:hsqldb:2.3.2'
     runtime 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
 }
 
