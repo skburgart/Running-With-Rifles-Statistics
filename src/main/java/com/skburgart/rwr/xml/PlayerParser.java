@@ -1,6 +1,5 @@
 package com.skburgart.rwr.xml;
 
-import com.skburgart.rwr.RWRConfig;
 import com.skburgart.rwr.vo.Player;
 import java.io.File;
 import java.io.IOException;
@@ -8,9 +7,6 @@ import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;

@@ -7,10 +7,10 @@ $(document).ready(function() {
         "aaSorting": [[ 1, "desc" ]],
         "aoColumns": [
             {"mData": "username"},
-            {"mData": "kills"},
-            {"mData": "deaths"},
-            {"mData": "kdratio"},
-            {"mData": "played"}
+            {"mData": "kills", "sType:": "numeric"},
+            {"mData": "deaths", "sType:": "numeric"},
+            {"mData": "kdratio", "sType:": "numeric"},
+            {"mData": "played", "sType:": "numeric"}
         ]
     });
 });

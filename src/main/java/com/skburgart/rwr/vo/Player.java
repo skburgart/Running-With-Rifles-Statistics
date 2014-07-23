@@ -255,6 +255,12 @@ public class Player implements Serializable {
     }
 
     public Double getKillDeathRatio() {
-        return (double) kills / (double) deaths;
+
+        Double kdratio = (double) kills / (double) deaths;
+        if (Double.isInfinite(kdratio) || Double.isNaN(kdratio)) {
+            kdratio = 0.0;
+        }
+
+        return kdratio;
     }
 }
