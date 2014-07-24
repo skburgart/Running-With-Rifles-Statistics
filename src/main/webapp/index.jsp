@@ -8,7 +8,6 @@
         <meta name="author" content="Steven Burgart">
         <title>RWR Stats</title>
         <link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="bootstrap-3.2.0-dist/css/template.css" rel="stylesheet">
         <link href="datatables-1.9.4/css/jquery.dataTables.css" rel="stylesheet">
         <link href="css/index.css" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
