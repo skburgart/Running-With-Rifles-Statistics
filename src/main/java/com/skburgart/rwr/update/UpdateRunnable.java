@@ -22,18 +22,16 @@ public class UpdateRunnable implements Runnable {
     @Override
     public void run() {
 
-        log.info("Updating stats");
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             ArrayList<Player> players = parseDirectory(RWRConfig.get("profiles.dir"));
-            log.info(String.format("Found %d players to update", players.size()));
             for (Player p : players) {
                 session.saveOrUpdate(p);
             }
             session.getTransaction().commit();
             session.close();
-            log.info("Stats updated");
+            log.info(String.format("Updated stats for %d players", players.size()));
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             log.error(String.format("Stats update failed: %s", ex.getMessage()));
         }
