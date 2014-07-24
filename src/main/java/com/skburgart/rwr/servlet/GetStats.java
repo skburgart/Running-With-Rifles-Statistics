@@ -33,6 +33,7 @@ public class GetStats extends HttpServlet {
 
         Session s = ((SessionFactory) getServletContext().getAttribute("sessionFactory")).openSession();
 
+        @SuppressWarnings("unchecked")
         List<Player> players = s.createCriteria(Player.class).list();
 
         // Write json
