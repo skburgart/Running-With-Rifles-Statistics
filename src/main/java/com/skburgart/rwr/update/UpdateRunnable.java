@@ -7,9 +7,8 @@ import static com.skburgart.rwr.xml.PlayerParser.parseDirectory;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.parsers.ParserConfigurationException;
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.service.ServiceRegistry;
 import org.xml.sax.SAXException;
 
 /**
@@ -18,23 +17,25 @@ import org.xml.sax.SAXException;
  */
 public class UpdateRunnable implements Runnable {
 
-    private static SessionFactory sessionFactory;
-    private static ServiceRegistry serviceRegistry;
+    private static final Logger log = Logger.getLogger(UpdateRunnable.class.getName());
 
     @Override
     public void run() {
 
+        log.info("Updating stats");
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             ArrayList<Player> players = parseDirectory(RWRConfig.get("profiles.dir"));
+            log.info(String.format("Found %d players to update", players.size()));
             for (Player p : players) {
                 session.saveOrUpdate(p);
             }
             session.getTransaction().commit();
             session.close();
+            log.info("Stats updated");
         } catch (ParserConfigurationException | SAXException | IOException ex) {
-            ex.printStackTrace();
+            log.error(String.format("Stats update failed: %s", ex.getMessage()));
         }
     }
 }
