@@ -339,7 +339,7 @@ public class Player implements Serializable {
                 return hours + " hour";
             }
         } else { // Minutes
-            long minutes = seconds /SECONDS_PER_MINUTE;
+            long minutes = seconds / SECONDS_PER_MINUTE;
             if (minutes > 1) {
                 return minutes + " mins";
             } else {

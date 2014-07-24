@@ -6,6 +6,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+import com.skburgart.rwr.HibernateUtil;
 import com.skburgart.rwr.vo.Player;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 /**
  *
@@ -30,11 +30,11 @@ public class GetStats extends HttpServlet {
 
         // Set json response type
         response.setContentType("application/json;charset=UTF-8");
-
-        Session s = ((SessionFactory) getServletContext().getAttribute("sessionFactory")).openSession();
+        Session s = HibernateUtil.getSessionFactory().openSession();
 
         @SuppressWarnings("unchecked")
         List<Player> players = s.createCriteria(Player.class).list();
+        s.close();
 
         // Write json
         PrintWriter out = response.getWriter();
