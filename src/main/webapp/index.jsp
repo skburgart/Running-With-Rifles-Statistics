@@ -25,6 +25,11 @@
                     </button>
                     <a class="navbar-brand" href=""><%=RWRConfig.get("web.title")%></a>
                 </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="http://www.modulaatio.com/rwr_server_list/view_servers.php">Public Server List</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 
