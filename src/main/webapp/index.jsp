@@ -34,7 +34,7 @@
         </div>
 
         <div id="stats-table-container">
-            <table id="report-table">
+            <table id="player-stats-table">
                 <thead>
                     <tr>
                         <th>Player</th>

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#report-table").dataTable({
+    $("#player-stats-table").dataTable({
         "bProcessing": true,
         "sAjaxDataProp": "",
         "iDisplayLength": 25,
