@@ -1,3 +1,4 @@
+<%@page import="com.skburgart.rwr.RWRConfig"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,7 +23,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="">Title Here</a>
+                    <a class="navbar-brand" href=""><%=RWRConfig.get("web.title")%></a>
                 </div>
             </div>
         </div>

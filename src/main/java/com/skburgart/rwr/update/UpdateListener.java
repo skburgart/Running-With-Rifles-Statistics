@@ -1,5 +1,6 @@
 package com.skburgart.rwr.update;
 
+import com.skburgart.rwr.RWRConfig;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -14,11 +15,12 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class UpdateListener implements ServletContextListener {
 
-    private static final int UPDATE_INTERVAL_MINS = 1;
+    private static final int UPDATE_INTERVAL_MINS = Integer.parseInt(RWRConfig.get("update.delay"));
     private volatile ScheduledExecutorService executor;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+        System.out.println("UPDATE_INTERVAL_MINS = " + UPDATE_INTERVAL_MINS);
         executor = Executors.newSingleThreadScheduledExecutor();
         executor.scheduleAtFixedRate(new UpdateRunnable(), 0, UPDATE_INTERVAL_MINS, TimeUnit.MINUTES);
     }
