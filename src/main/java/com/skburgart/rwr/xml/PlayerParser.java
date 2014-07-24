@@ -8,6 +8,7 @@ import java.util.Date;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -17,6 +18,8 @@ import org.xml.sax.SAXException;
  * @author Steven Burgart <skburgart@gmail.com>
  */
 public class PlayerParser {
+
+    private static final Logger log = Logger.getLogger(PlayerParser.class.getName());
 
     public static Player parseXML(File profileXMLFile, File personXMLFile) throws ParserConfigurationException, SAXException, IOException {
 
@@ -70,8 +73,10 @@ public class PlayerParser {
 
         File directory = new File(dir);
 
+        log.info(String.format("Searching directory for player profiles '%s'", dir));
         if (!directory.canRead() || !directory.isDirectory()) {
-            throw new RuntimeException("RWR profiles directory not readable");
+            log.error("Profiles directory not readable - check existence and permission");
+            return players;
         }
 
         File[] files = directory.listFiles();

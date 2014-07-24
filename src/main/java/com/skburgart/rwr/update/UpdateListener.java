@@ -23,7 +23,7 @@ public class UpdateListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        log.info(String.format("Starting stat update server - stats will every %d minute(s)", UPDATE_INTERVAL_MINS));
+        log.info(String.format("Loading stat update service - stats will every %d minute(s)", UPDATE_INTERVAL_MINS));
         executor = Executors.newSingleThreadScheduledExecutor();
         executor.scheduleAtFixedRate(new UpdateRunnable(), 0, UPDATE_INTERVAL_MINS, TimeUnit.MINUTES);
     }
