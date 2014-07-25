@@ -1,6 +1,5 @@
 /**
- * Copyright (c) 2014 ICRL
- * See the file license.txt for copying permission.
+ * Copyright (c) 2014 ICRL See the file license.txt for copying permission.
  */
 package com.skburgart.rwr.servlet;
 
@@ -23,12 +22,21 @@ import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 
 /**
+ * Used to get player stats in json format for index.jsp datatable
  *
  * @author Steven Burgart <skburgart@gmail.com>
  */
 @WebServlet(name = "GetStats", urlPatterns = {"/GetStats"})
 public class GetStats extends HttpServlet {
 
+    /**
+     * Process HTTP request and return JSON formatted array of player stats
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -73,21 +81,41 @@ public class GetStats extends HttpServlet {
         }
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Process "get" and "post" the same
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * Process "get" and "post" the same
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * Short servlet description
+     *
+     * @return
+     */
     @Override
     public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+        return "Get all player stats";
+    }
 }

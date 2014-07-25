@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebListener;
 import org.apache.log4j.Logger;
 
 /**
+ * Used to trigger periodic player stat updates
  *
  * @author Steven Burgart <skburgart@gmail.com>
  */
@@ -25,6 +26,11 @@ public class UpdateListener implements ServletContextListener {
     private static final int UPDATE_INTERVAL_MINS = Integer.parseInt(RWRConfig.get("update.delay"));
     private volatile ScheduledExecutorService executor;
 
+    /**
+     * Initiates the scheduled update task
+     *
+     * @param sce
+     */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         log.info(String.format("Loading stat update service - stats will every %d minute(s)", UPDATE_INTERVAL_MINS));
@@ -32,6 +38,11 @@ public class UpdateListener implements ServletContextListener {
         executor.scheduleAtFixedRate(new UpdateRunnable(), 0, UPDATE_INTERVAL_MINS, TimeUnit.MINUTES);
     }
 
+    /**
+     * Cancels the scheduled update task
+     *
+     * @param sce
+     */
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         log.info("Shutting down stat update service");

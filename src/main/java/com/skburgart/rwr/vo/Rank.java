@@ -1,15 +1,19 @@
 /**
- * Copyright (c) 2014 ICRL
- * See the file license.txt for copying permission.
+ * Copyright (c) 2014 ICRL See the file license.txt for copying permission.
  */
 package com.skburgart.rwr.vo;
 
 /**
+ * Helper class used for determining a players rank
  *
  * @author Steven Burgart <skburgart@gmail.com>
  */
 public class Rank {
 
+    /**
+     * Enumeration that represents the ranks in Running With Rifles along with
+     * their associated xp thresholds and full titles.
+     */
     public enum RankType {
 
         PRIVATE(0, "Private"),
@@ -38,11 +42,22 @@ public class Rank {
             this.title = title;
         }
 
+        /**
+         * Get the rank title
+         *
+         * @return
+         */
         public String getTitle() {
             return title;
         }
     }
 
+    /**
+     * Returns the rank a player is given their xp
+     *
+     * @param xp
+     * @return
+     */
     public static RankType getRank(int xp) {
         for (int i = RankType.values().length - 1; i >= 0; --i) {
             RankType r = RankType.values()[i];

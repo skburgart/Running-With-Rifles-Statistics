@@ -1,6 +1,5 @@
 /**
- * Copyright (c) 2014 ICRL
- * See the file license.txt for copying permission.
+ * Copyright (c) 2014 ICRL See the file license.txt for copying permission.
  */
 package com.skburgart.rwr;
 
@@ -10,6 +9,7 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 /**
+ * RWR configuration loader
  *
  * @author Steven Burgart <skburgart@gmail.com>
  */
@@ -33,6 +33,12 @@ public class RWRConfig {
         return props;
     }
 
+    /**
+     * Get the property value that corresponds to the key
+     *
+     * @param key
+     * @return key value
+     */
     public static String get(String key) {
         return properties.getProperty(key);
     }

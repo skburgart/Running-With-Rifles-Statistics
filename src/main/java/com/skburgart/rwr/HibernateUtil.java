@@ -1,6 +1,5 @@
 /**
- * Copyright (c) 2014 ICRL
- * See the file license.txt for copying permission.
+ * Copyright (c) 2014 ICRL See the file license.txt for copying permission.
  */
 package com.skburgart.rwr;
 
@@ -32,6 +31,11 @@ public class HibernateUtil {
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
     }
 
+    /**
+     * Get the singleton session factory created by the static block
+     *
+     * @return the session factory
+     */
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
