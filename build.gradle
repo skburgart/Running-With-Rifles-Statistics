@@ -2,6 +2,10 @@ apply plugin: 'war'
 
 sourceCompatibility = '1.7'
 
+test {
+    useTestNG()
+}
+
 war {
     baseName = 'rwr-stats'
 }
@@ -17,6 +21,7 @@ dependencies {
     compile 'log4j:log4j:1.2.17'
     runtime 'org.hsqldb:hsqldb:2.3.2'
     runtime 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
+    testCompile 'org.testng:testng:6.8.8'
 }
 
 tasks.withType(JavaCompile) {
