@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2014 ICRL
+ * See the file license.txt for copying permission.
+ */
 package com.skburgart.rwr.servlet;
 
 import com.google.gson.Gson;

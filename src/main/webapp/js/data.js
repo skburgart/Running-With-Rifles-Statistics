@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2014 ICRL
+ * See the file license.txt for copying permission.
+ */
 $(document).ready(function() {
     $("#player-stats-table").dataTable({
         "bProcessing": true,

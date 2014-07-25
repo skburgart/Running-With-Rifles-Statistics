@@ -1,3 +1,7 @@
+<!--
+ Copyright (c) 2014 ICRL
+ See the file license.txt for copying permission.
+-->
 <%@page import="com.skburgart.rwr.RWRConfig"%>
 <!DOCTYPE html>
 <html lang="en">
