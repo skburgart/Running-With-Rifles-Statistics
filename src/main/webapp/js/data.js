@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2014 ICRL
+ * Copyright (c) 2014 Steven Burgart
  * See the file license.txt for copying permission.
  */
 $(document).ready(function() {

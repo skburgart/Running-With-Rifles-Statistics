@@ -1,5 +1,6 @@
 /**
- * Copyright (c) 2014 ICRL See the file license.txt for copying permission.
+ * Copyright (c) 2014 Steven Burgart
+ * See the file license.txt for copying permission.
  */
 package com.skburgart.rwr.vo;
 
