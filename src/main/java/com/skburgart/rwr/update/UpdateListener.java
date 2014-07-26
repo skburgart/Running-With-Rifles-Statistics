@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2014 Steven Burgart
+ * Copyright (c) 2014 Steven Burgart <skburgart@gmail.com>
  * See the file license.txt for copying permission.
  */
 package com.skburgart.rwr.update;
