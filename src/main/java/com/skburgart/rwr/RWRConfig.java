@@ -29,7 +29,7 @@ public class RWRConfig {
             InputStream is = RWRConfig.class.getClassLoader().getResourceAsStream(fileName);
             props.load(is);
         } catch (IOException ex) {
-            log.error(String.format("Failed to load properties file '%s': %s", PROPERTIES_FILENAME, ex.getMessage()));
+            log.error(String.format("Failed to load properties file '%s'", PROPERTIES_FILENAME), ex);
         }
         return props;
     }

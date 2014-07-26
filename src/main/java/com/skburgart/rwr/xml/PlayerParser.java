@@ -33,18 +33,24 @@ public class PlayerParser {
      * @param profileXMLFile
      * @param personXMLFile
      * @return player object of the parsed stats
-     * @throws ParserConfigurationException
-     * @throws SAXException
-     * @throws IOException
      */
-    public static Player parseXML(File profileXMLFile, File personXMLFile) throws ParserConfigurationException, SAXException, IOException {
-
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document profileXML = dBuilder.parse(profileXMLFile);
-        Document personXML = dBuilder.parse(personXMLFile);
+    public static Player parseXML(File profileXMLFile, File personXMLFile) {
 
         Player player = new Player();
+
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder;
+        Document profileXML;
+        Document personXML;
+
+        try {
+            dBuilder = dbFactory.newDocumentBuilder();
+            profileXML = dBuilder.parse(profileXMLFile);
+            personXML = dBuilder.parse(personXMLFile);
+        } catch (SAXException | IOException | ParserConfigurationException ex) {
+            log.error(String.format("Error parsing XML", ex));
+            return player;
+        }
 
         // Stats from .profile file
         Element profile = (Element) profileXML.getElementsByTagName("profile").item(0);
@@ -89,12 +95,9 @@ public class PlayerParser {
      * directory.
      *
      * @param dir
-     * @return arraylist of players
-     * @throws ParserConfigurationException
-     * @throws SAXException
-     * @throws IOException
+     * @return ArrayList of players
      */
-    public static ArrayList<Player> parseDirectory(String dir) throws ParserConfigurationException, SAXException, IOException {
+    public static ArrayList<Player> parseDirectory(String dir) {
 
         ArrayList<Player> players = new ArrayList<>();
 
