@@ -30,6 +30,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="https://github.com/skburgart/Running-With-Rifles-Statistics">See on Github</a></li>
                         <li><a href="http://www.modulaatio.com/rwr_server_list/view_servers.php">Public Server List</a></li>
                     </ul>
                 </div>
