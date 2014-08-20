@@ -45,11 +45,23 @@ public class PlayerParser {
 
         try {
             dBuilder = dbFactory.newDocumentBuilder();
+        } catch (ParserConfigurationException ex) {
+            log.warn("Error creating document builder", ex);
+            return null;
+        }
+
+        try {
             profileXML = dBuilder.parse(profileXMLFile);
+        } catch (SAXException | IOException ex) {
+            log.warn(String.format("Error parsing profile XML %s", profileXMLFile.getName()), ex);
+            return null;
+        }
+
+        try {
             personXML = dBuilder.parse(personXMLFile);
-        } catch (SAXException | IOException | ParserConfigurationException ex) {
-            log.error(String.format("Error parsing XML", ex));
-            return player;
+        } catch (SAXException | IOException ex) {
+            log.warn(String.format("Error parsing person XML %s", personXMLFile.getName()), ex);
+            return null;
         }
 
         // Stats from .profile file
@@ -116,7 +128,10 @@ public class PlayerParser {
 
                 String profileFileName = dir + personFile.getName().replace("person", "profile");
                 File profileFile = new File(profileFileName);
-                players.add(parseXML(profileFile, personFile));
+                Player p = parseXML(profileFile, personFile);
+                if (p != null ) {
+                    players.add(parseXML(profileFile, personFile));
+                }
             }
         }
 
