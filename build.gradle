@@ -3,6 +3,8 @@
  * See the file license.txt for copying permission.
  */
 apply plugin: 'war'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
 
 sourceCompatibility = '1.7'
 
@@ -31,4 +33,3 @@ dependencies {
 tasks.withType(JavaCompile) {
     options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 }
-

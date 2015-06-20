@@ -494,7 +494,7 @@ public class Player implements Serializable {
      * @return
      */
     public Date getLastModified() {
-        return lastModified;
+        return (Date) lastModified.clone();
     }
 
     /**
@@ -503,7 +503,7 @@ public class Player implements Serializable {
      * @param lastModified
      */
     public void setLastModified(Date lastModified) {
-        this.lastModified = lastModified;
+        this.lastModified = (Date) lastModified.clone();
     }
 
     /**
@@ -528,7 +528,7 @@ public class Player implements Serializable {
      */
     public Double getKillsPerMinute() {
 
-        Double kpm = (double) getKills() / (getTimePlayed() / 60);
+        Double kpm = (double) getKills() / (getTimePlayed() / 60.0);
         if (Double.isInfinite(kpm) || Double.isNaN(kpm)) {
             kpm = 0.0;
         }
@@ -578,7 +578,7 @@ public class Player implements Serializable {
      */
     public Long getLastSeenSeconds() {
 
-        return ((new Date().getTime()) - getLastModified().getTime()) / 1000;
+        return (new Date().getTime() - getLastModified().getTime()) / 1000;
     }
 
     /**

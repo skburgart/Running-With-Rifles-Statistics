@@ -123,13 +123,18 @@ public class PlayerParser {
 
         File[] files = directory.listFiles();
 
+        if (files == null) {
+            log.error("Directory listing is null");
+            return players;
+        }
+
         for (File personFile : files) {
             if (personFile.getName().endsWith("person")) {
 
                 String profileFileName = dir + personFile.getName().replace("person", "profile");
                 File profileFile = new File(profileFileName);
                 Player p = parseXML(profileFile, personFile);
-                if (p != null ) {
+                if (p != null) {
                     players.add(parseXML(profileFile, personFile));
                 }
             }
