@@ -619,9 +619,9 @@ public class Player implements Serializable {
      */
     public static String elapsedString(long seconds) {
 
-        final int SECONDS_PER_DAY = 86400;
-        final int SECONDS_PER_HOUR = 3600;
         final int SECONDS_PER_MINUTE = 60;
+        final int SECONDS_PER_HOUR = 60 * SECONDS_PER_MINUTE;
+        final int SECONDS_PER_DAY = 24 * SECONDS_PER_HOUR;
 
         if (seconds >= SECONDS_PER_DAY) { // Days
             long days = seconds / SECONDS_PER_DAY;

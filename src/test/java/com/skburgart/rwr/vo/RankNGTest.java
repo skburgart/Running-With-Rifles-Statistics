@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class RankNGTest {
 
     @Test
-    public void getRankTest() {
+    public void testGetRank() {
 
         Assert.assertEquals(Rank.getRank(0), RankType.PRIVATE);
         Assert.assertEquals(Rank.getRank(1500), RankType.CORPORAL);
