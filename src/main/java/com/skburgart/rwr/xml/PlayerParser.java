@@ -5,6 +5,7 @@
 package com.skburgart.rwr.xml;
 
 import com.skburgart.rwr.vo.Player;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -14,6 +15,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,14 +55,14 @@ public class PlayerParser {
         }
 
         try {
-            profileXML = dBuilder.parse(profileXMLFile);
+            profileXML = dBuilder.parse(new ByteArrayInputStream(FileUtils.readFileToString(profileXMLFile).getBytes("ISO-8859-1")));
         } catch (SAXException | IOException ex) {
             log.warn(String.format("Error parsing profile XML %s: %s", profileXMLFile.getName(), ex.getMessage()));
             return null;
         }
 
         try {
-            personXML = dBuilder.parse(personXMLFile);
+            personXML = dBuilder.parse(new ByteArrayInputStream(FileUtils.readFileToString(personXMLFile).getBytes("ISO-8859-1")));
         } catch (SAXException | IOException ex) {
             log.warn(String.format("Error parsing person XML %s: %s", personXMLFile.getName(), ex.getMessage()));
             return null;
