@@ -25,7 +25,7 @@ public class Update implements Runnable {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @Value("${rwr.profile.dir}")
+    @Value("${rwr.profiles.dir}")
     private String profileDirectory;
 
     @Scheduled(fixedRateString = "${rwr.updateInterval}")
