@@ -16,7 +16,7 @@ public class Index {
     private String title;
 
     @RequestMapping
-    protected String index (Model model) {
+    protected String index(Model model) {
         model.addAttribute("title", title);
         return "index";
     }

@@ -5,14 +5,10 @@
 package com.skburgart.rwr.vo;
 
 import com.skburgart.rwr.vo.Rank.RankType;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  * A persistent class that represents a player and associated statistics
