@@ -1,6 +1,8 @@
 package com.skburgart.rwr.controllers;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -10,8 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class Index {
 
+    @Value("${rwr.title}")
+    private String title;
+
     @RequestMapping
-    protected String index () {
+    protected String index (Model model) {
+        model.addAttribute("title", title);
         return "index";
     }
 }

@@ -18,11 +18,11 @@ import java.util.List;
  * @author Steven Burgart <skburgart@gmail.com>
  */
 @RestController
-public class GetStats {
+public class Stats {
     /**
      * Process HTTP request and return JSON formatted array of player stats
      */
-    @RequestMapping("/GetStats")
+    @RequestMapping("/stats")
     protected String getStats() {
         Session s = HibernateUtil.getSessionFactory().openSession();
 
@@ -35,7 +35,6 @@ public class GetStats {
     }
 
     private String playersToJson(List<Player> reports) {
-
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.registerTypeAdapter(Player.class, new PlayerAdapter()).setPrettyPrinting().create();
         return gson.toJson(reports);
@@ -45,7 +44,6 @@ public class GetStats {
 
         @Override
         public JsonElement serialize(Player p, java.lang.reflect.Type type, JsonSerializationContext jsc) {
-
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("username", p.getUsernameAndRank());
             jsonObject.addProperty("xp", p.getExperience());

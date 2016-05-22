@@ -7,7 +7,7 @@ $(document).ready(function() {
         "bProcessing": true,
         "sAjaxDataProp": "",
         "iDisplayLength": 25,
-        "sAjaxSource": 'GetStats',
+        "sAjaxSource": 'stats',
         "aaSorting": [[ 1, "desc" ]],
         "aoColumns": [
             {"mData": "username"},
