@@ -4,16 +4,13 @@
  */
 package com.skburgart.rwr.update;
 
-import com.skburgart.rwr.HibernateUtil;
-import com.skburgart.rwr.vo.Player;
-import org.hibernate.Session;
+import com.skburgart.rwr.vo.Players;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
 
 import static com.skburgart.rwr.xml.PlayerParser.parseDirectory;
 
@@ -25,18 +22,15 @@ public class Update implements Runnable {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+    @Autowired
+    private Players players;
+
     @Value("${rwr.profiles.dir}")
     private String profileDirectory;
 
     @Scheduled(fixedRateString = "${rwr.updateInterval}")
     public void run() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        ArrayList<Player> players = parseDirectory(profileDirectory);
-        players.forEach(session::saveOrUpdate);
-        session.getTransaction().commit();
-        session.close();
-
-        log.info(String.format("Updated stats for %d players", players.size()));
+        players.setPlayers(parseDirectory(profileDirectory));
+        log.info(String.format("Updated stats for %d players", players.getPlayers().size()));
     }
 }

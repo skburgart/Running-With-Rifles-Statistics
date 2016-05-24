@@ -15,59 +15,31 @@ import java.util.Date;
  *
  * @author Steven Burgart <skburgart@gmail.com>
  */
-@Entity
-@Table(name = "player")
 public class Player implements Serializable {
 
-    @Id
-    @Column(name = "username")
     private String username;
-    @Column(name = "game_version")
     private int gameVersion;
-    @Column(name = "digest")
     private String digest;
-    @Column(name = "time_played")
     private int timePlayed;
-    @Column(name = "kills")
     private int kills;
-    @Column(name = "deaths")
     private int deaths;
-    @Column(name = "player_kills")
     private int playerKills;
-    @Column(name = "teamkills")
     private int teamkills;
-    @Column(name = "longest_kill_streak")
     private int longestKillStreak;
-    @Column(name = "targets_destroyed")
     private int targetsDestroyed;
-    @Column(name = "vehicles_destroyed")
     private int vehiclesDestroyed;
-    @Column(name = "soldiers_healed")
     private int soldiersHealed;
-    @Column(name = "times_got_healed")
     private int timesGotHealed;
-    @Column(name = "max_authority_reached")
     private double maxAuthorityReached;
-    @Column(name = "authority")
     private double authority;
-    @Column(name = "job_points")
     private double jobPoints;
-    @Column(name = "faction")
     private int faction;
-    @Column(name = "name")
     private String name;
-    @Column(name = "version")
     private int version;
-    @Column(name = "soldier_group_id")
     private int soldierGroupId;
-    @Column(name = "block")
     private String block;
-    @Column(name = "squad_size_setting")
     private int squadSizeSetting;
-    @Column(name = "squad_config_index")
     private int squadConfigIndex;
-    @Column(name = "last_modified")
-    @Temporal(TemporalType.TIMESTAMP)
     private Date lastModified;
 
     /**

@@ -5,9 +5,9 @@
 package com.skburgart.rwr.controllers;
 
 import com.google.gson.*;
-import com.skburgart.rwr.HibernateUtil;
 import com.skburgart.rwr.vo.Player;
-import org.hibernate.Session;
+import com.skburgart.rwr.vo.Players;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,19 +20,16 @@ import java.util.List;
  */
 @RestController
 public class Stats {
+
+    @Autowired
+    private Players players;
+
     /**
      * Process HTTP request and return JSON formatted array of player stats
      */
     @RequestMapping("/stats")
     protected String getStats() {
-        Session s = HibernateUtil.getSessionFactory().openSession();
-
-        @SuppressWarnings("unchecked")
-        List<Player> players = s.createCriteria(Player.class).list();
-        s.close();
-
-        // Write json
-        return playersToJson(players);
+        return playersToJson(players.getPlayers());
     }
 
     private String playersToJson(List<Player> reports) {
