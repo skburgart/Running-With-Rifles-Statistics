@@ -37,6 +37,5 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile 'org.springframework.boot:spring-boot-devtools'
-    compile 'com.google.code.gson:gson:2.2.4'
     compile 'commons-io:commons-io:2.4'
 }

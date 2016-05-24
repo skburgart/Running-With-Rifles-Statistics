@@ -2,26 +2,40 @@
  * Copyright (c) 2014 Steven Burgart <skburgart@gmail.com>
  * See the file license.txt for copying permission.
  */
-$(document).ready(function() {
+$(document).ready(function () {
     $("#player-stats-table").dataTable({
         "bProcessing": true,
         "sAjaxDataProp": "",
         "iDisplayLength": 25,
         "sAjaxSource": 'stats',
-        "aaSorting": [[ 1, "desc" ]],
+        "aaSorting": [[1, "desc"]],
         "aoColumns": [
-            {"mData": "username"},
-            {"mData": "xp", "sClass" : "alignRight", "sType:": "numeric"},
-            {"mData": "kills", "sClass" : "alignRight", "sType:": "numeric"},
-            {"mData": "deaths", "sClass" : "alignRight", "sType:": "numeric"},
-            {"mData": "streak", "sClass" : "alignRight", "sType:": "numeric"},
-            {"mData": "kdratio", "sClass" : "alignRight", "sType:": "numeric"},
-            {"mData": "kpm", "sClass" : "alignRight", "sType:": "numeric"},
-            {"mData": "played", "sClass" : "alignRight", "sType:": "numeric", "iDataSort": 9},
-            {"mData": "lastseen", "sClass" : "alignRight", "sType:": "numeric", "iDataSort": 10},
+            {"mData": "usernameAndRank"},
+            {"mData": "experience", "sClass": "alignRight", "sType:": "numeric"},
+            {"mData": "kills", "sClass": "alignRight", "sType:": "numeric"},
+            {"mData": "deaths", "sClass": "alignRight", "sType:": "numeric"},
+            {"mData": "longestKillStreak", "sClass": "alignRight", "sType:": "numeric"},
+            {
+                "mData": "killDeathRatio",
+                "sClass": "alignRight",
+                "sType:": "numeric",
+                "mRender": function (data, type, row) {
+                    return data.toFixed(2);
+                }
+            },
+            {
+                "mData": "killsPerMinute",
+                "sClass": "alignRight",
+                "sType:": "numeric",
+                "mRender": function (data, type, row) {
+                    return data.toFixed(2);
+                }
+            },
+            {"mData": "timePlayedString", "sClass": "alignRight", "sType:": "numeric", "iDataSort": 9},
+            {"mData": "lastSeen", "sClass": "alignRight", "sType:": "numeric", "iDataSort": 10},
             // Hiden values (for sorting)
-            {"mData": "playedseconds", "bVisible": false},
-            {"mData": "lastseenseconds", "bVisible": false}
+            {"mData": "timePlayed", "bVisible": false},
+            {"mData": "lastSeenSeconds", "bVisible": false}
         ]
     });
 });
