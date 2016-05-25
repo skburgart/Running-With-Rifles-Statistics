@@ -6,7 +6,6 @@ package com.skburgart.rwr.vo;
 
 import com.skburgart.rwr.vo.Rank.RankType;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -24,7 +23,7 @@ public class Player implements Serializable {
     private int kills;
     private int deaths;
     private int playerKills;
-    private int teamkills;
+    private int teamKills;
     private int longestKillStreak;
     private int targetsDestroyed;
     private int vehiclesDestroyed;
@@ -173,17 +172,17 @@ public class Player implements Serializable {
      *
      * @return
      */
-    public int getTeamkills() {
-        return teamkills;
+    public int getTeamKills() {
+        return teamKills;
     }
 
     /**
      * set team kills
      *
-     * @param teamkills
+     * @param teamKills
      */
-    public void setTeamkills(int teamkills) {
-        this.teamkills = teamkills;
+    public void setTeamKills(int teamKills) {
+        this.teamKills = teamKills;
     }
 
     /**
@@ -480,7 +479,6 @@ public class Player implements Serializable {
      * @return
      */
     public Double getKillDeathRatio() {
-
         Double kdratio = (double) getKills() / (double) getDeaths();
         if (Double.isInfinite(kdratio) || Double.isNaN(kdratio)) {
             kdratio = 0.0;
@@ -495,7 +493,6 @@ public class Player implements Serializable {
      * @return
      */
     public Double getKillsPerMinute() {
-
         Double kpm = (double) getKills() / (getTimePlayed() / 60.0);
         if (Double.isInfinite(kpm) || Double.isNaN(kpm)) {
             kpm = 0.0;
@@ -529,13 +526,12 @@ public class Player implements Serializable {
      *
      * @return
      */
-    public String getLastSeen() {
-
-        if (getLastSeenSeconds() < 600) {
+    public String getLastSeenPretty() {
+        if (getLastSeen() < 600) {
             return "now";
         }
 
-        return elapsedString(getLastSeenSeconds()) + " ago";
+        return elapsedString(getLastSeen()) + " ago";
     }
 
     /**
@@ -544,18 +540,8 @@ public class Player implements Serializable {
      *
      * @return
      */
-    public Long getLastSeenSeconds() {
-
+    public Long getLastSeen() {
         return (new Date().getTime() - getLastModified().getTime()) / 1000;
-    }
-
-    /**
-     * Returns a combination of user rank image in HTML plus the username
-     *
-     * @return
-     */
-    public String getUsernameAndRank() {
-        return getRankIMG() + getUsername();
     }
 
     /**
@@ -568,17 +554,6 @@ public class Player implements Serializable {
     }
 
     /**
-     * Constructs HTML img of players rank
-     *
-     * @return
-     */
-    public String getRankIMG() {
-
-        RankType rank = getRank();
-        return String.format("<img title=\"%s\" height=\"25\" src=\"img/rank/%s.png\" />", rank.getTitle(), rank.toString());
-    }
-
-    /**
      * Helper function used to determine time elapsed in days/hours/minutes
      * based on the seconds
      *
@@ -586,7 +561,6 @@ public class Player implements Serializable {
      * @return string interpretation of seconds elapsed in days/hours/minutes
      */
     public static String elapsedString(long seconds) {
-
         final int SECONDS_PER_MINUTE = 60;
         final int SECONDS_PER_HOUR = 60 * SECONDS_PER_MINUTE;
         final int SECONDS_PER_DAY = 24 * SECONDS_PER_HOUR;

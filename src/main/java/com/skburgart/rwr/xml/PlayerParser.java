@@ -79,7 +79,7 @@ public class PlayerParser {
         player.setDeaths(Integer.parseInt(profileStats.getAttribute("deaths")));
         player.setKills(Integer.parseInt(profileStats.getAttribute("kills")));
         player.setPlayerKills(Integer.parseInt(profileStats.getAttribute("player_kills")));
-        player.setTeamkills(Integer.parseInt(profileStats.getAttribute("teamkills")));
+        player.setTeamKills(Integer.parseInt(profileStats.getAttribute("teamkills")));
         player.setLongestKillStreak(Integer.parseInt(profileStats.getAttribute("longest_kill_streak")));
         player.setTargetsDestroyed(Integer.parseInt(profileStats.getAttribute("targets_destroyed")));
         player.setVehiclesDestroyed(Integer.parseInt(profileStats.getAttribute("vehicles_destroyed")));
