@@ -39,3 +39,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-devtools'
     compile 'commons-io:commons-io:2.4'
 }
+
+bootRun {
+    systemProperty "spring.output.ansi.enabled", "ALWAYS"
+}
