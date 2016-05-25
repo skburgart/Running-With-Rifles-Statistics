@@ -38,8 +38,7 @@ $(document).ready(function () {
             {"mData": "lastSeenPretty", "sClass": "alignRight", "sType:": "numeric", "iDataSort": 10},
             // Hiden values (for sorting)
             {"mData": "timePlayed", "bVisible": false},
-            {"mData": "lastSeen", "bVisible": false},
-            {"mData": "rank", "bVisible": false}
+            {"mData": "lastSeen", "bVisible": false}
         ]
     });
 });
