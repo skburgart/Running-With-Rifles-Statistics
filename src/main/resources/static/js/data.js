@@ -34,7 +34,7 @@ $(document).ready(function () {
                     return data.toFixed(2);
                 }
             },
-            {"mData": "timePlayedString", "sClass": "alignRight", "sType:": "numeric", "iDataSort": 9},
+            {"mData": "timePlayedPretty", "sClass": "alignRight", "sType:": "numeric", "iDataSort": 9},
             {"mData": "lastSeenPretty", "sClass": "alignRight", "sType:": "numeric", "iDataSort": 10},
             // Hiden values (for sorting)
             {"mData": "timePlayed", "bVisible": false},

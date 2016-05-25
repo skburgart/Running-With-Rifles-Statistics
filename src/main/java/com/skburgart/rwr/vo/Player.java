@@ -515,7 +515,7 @@ public class Player implements Serializable {
      *
      * @return
      */
-    public String getTimePlayedString() {
+    public String getTimePlayedPretty() {
 
         return elapsedString(getTimePlayed());
     }
